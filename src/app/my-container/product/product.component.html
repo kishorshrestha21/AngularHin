@@ -1,0 +1,58 @@
+
+
+    <h2 class="text-center bg-info text-white p-2">Products</h2>
+    <div class="product">
+        <p class="text-center">
+            Lorem ipsum dolor sit amet consectetur adipisicing 
+            elit. Voluptate corrupti perferendis minus cum obcaecati 
+            vero? Dolor fuga repellat, esse saepe natus quae vero, est 
+            voluptatibus architecto et consequatur obcaecati omnis?
+        </p>
+        <hr class="mb-3">
+
+         <div class="row">
+             
+             <div class="col-md-6 productlist">
+                <div class="card">
+                    <img src="../../assets/image/mobile.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">Mobile</h5>
+                      <p class="card-text">Some quick example text to build on the card.</p>
+                      <a  routerLinkActive="productActive" routerLink="mobile" class="btn btn-success"> Know More...</a>
+                    </div>
+                </div>
+
+                  <div class="card">
+                    <img src="../../assets/image/tv.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">Tv</h5>
+                      <p class="card-text">Some quick example text to build on the card.</p>
+                      <a  routerLinkActive="productActive" routerLink="tv" class="btn btn-success"> Know More...</a>
+                    </div>
+                  </div>
+
+                  <div class="card">
+                    <img src="../../assets/image/laptop.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">Laptop</h5>
+                      <p class="card-text">Some quick example text to build on the.</p>
+                      <a routerLinkActive="productActive" routerLink="laptop" class="btn btn-success"> Know More...</a>
+                    </div>
+                  </div>
+
+                  <div class="card">
+                    <img src="../../assets/image/camera.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">Camera</h5>
+                      <p class="card-text">Some quick example text to build on the card.</p>
+                      <a routerLinkActive="productActive" routerLink="camera" class="btn btn-success"> Know More...</a>
+                    </div>
+                  </div>
+             </div>
+             <div class="col-md-6 border-left">
+                 <router-outlet></router-outlet>
+             </div>
+         </div>
+    </div>
+
+    

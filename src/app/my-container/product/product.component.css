@@ -1,0 +1,35 @@
+.product{
+    width: 100%;
+   padding: 10px;
+   overflow: hidden;
+   
+}
+
+.card{
+    display:inline-block;
+    margin: 0 10px 10px;
+    width:45%;
+   
+}
+
+.productlist{
+    height: 600px;
+    overflow: scroll;
+}
+.productActive{
+    background-color: indianred;
+    border: none;
+}
+
+ button{
+    border: none;
+}
+
+.gallery{
+    width: 100%;
+     display: grid;
+     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+     grid-gap: 10px;
+   padding:8px;
+   box-sizing: border-box;
+ }

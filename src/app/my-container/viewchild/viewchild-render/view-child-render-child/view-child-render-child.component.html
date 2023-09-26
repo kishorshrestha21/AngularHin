@@ -1,0 +1,14 @@
+
+<div class=" p-3" appTestDirective >
+    <p>view-child-render-child works!</p>
+    <h3>viewchild-children</h3>
+    <div class="card bg-light p-5" >
+        <h4 class="card-title">Title :<strong>{{myChildTitle}}</strong></h4>
+        <button (click)="clickMeAgain()"class= "btn btn-success">Update</button><br>
+     
+        <ng-content></ng-content>
+
+        <button class="btn btn-primary" (click) ="changeColor('blue')">Blue</button><br>
+        <button class="btn btn-danger" (click) ="changeColor('red')">Red</button>
+    </div>
+</div>

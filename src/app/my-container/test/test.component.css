@@ -1,0 +1,51 @@
+.tClass1{
+    background-color: tomato;
+}
+
+.tClass2{
+    padding: 10px;
+    border-radius: 5px;
+    z-index: 2;
+}
+
+.newCal{
+    background-color: rgb(130, 238, 171);
+    padding: 10px;
+    border-radius: 5px;
+    z-index: 2;
+}
+.k1{
+    background-color: turquoise;
+    
+}
+.k2{
+    border-radius: 5px; 
+}
+
+.k3{
+    padding: 10px;
+   
+}
+
+.testClass{
+    background-color: wheat;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.padClass{
+    background-color: tomato;
+    border-radius: 5px;
+
+}
+
+.newClass{
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.gap{
+    margin-top: 20px;
+
+}
+

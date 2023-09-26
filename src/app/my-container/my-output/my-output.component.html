@@ -1,0 +1,84 @@
+
+ <p class="p-3">Lorem, ipsum dolor sit amet consectetur
+      adipisicing elit. Voluptate totam maxime 
+      deleniti unde delectus at consectetur. 
+      Quod, sed obcaecati quibusdam ipsam 
+      tempora asperiores voluptatum alias aut, 
+      dignissimos non, eius repudiandae!
+    </p>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <h2>Admin</h2>
+            <table class="table table-bordered table-striped">
+                <thead class="table-dark">
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor = "let adminInputVal of adminInputVals; index as i">
+                        <td>{{i+1}}</td>
+                        <td>{{adminInputVal}}</td>
+                        <td><button (click)="onDeleteAdmin(i)" class="btn btn-danger">Delete</button></td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="adminsCount" *ngIf="adminsCount">
+                <h2>Total: {{adminsCount}}</h2>
+            </div>
+            
+        </div>
+        <div class="col-md-6">
+            <h2>User</h2>
+            <table class=" table table-bordered table-striped">
+                <thead class="table-dark">
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor = "let userInputVal of userInputVals; index as i">
+                        <td>{{i+1}}</td>
+                        <td>{{userInputVal}}</td>
+                        <td><button (click)="onDeleteUser(i)" class="btn btn-danger">Delete</button></td>
+                    </tr>
+                </tbody>
+            </table>
+            <div *ngIf= "userCount">
+                <h2>Total: {{userCount}}</h2>
+             
+            </div>
+            
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <app-my-out-put-child
+            [textHead]="'Admin'"
+            [placeHolderText]="'admin'"
+            [headerColor] ="'red'"
+            (getVal)="getAdminValue($event)"
+            [dataCount]="adminsCount"
+            (newCount)="getAdminCount($event)"  
+            >   
+            </app-my-out-put-child>
+        </div>
+
+        <div class="col-md-6">
+            <app-my-out-put-child
+            [textHead]="'User'"
+            [placeHolderText]="'username'"
+            [headerColor] ="'green'"
+            (getVal)="getUserValue($event)"
+            [dataCount]="userCount"
+            (newCount)="getUserCount($event)"
+            > 
+            </app-my-out-put-child>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,15 @@
+.header{
+    position: relative;
+    background-color: #52a3fd;
+    padding: 20px;
+    display: flex;
+}
+.myHead{
+    position: absolute;
+    top:30%;
+    left: 60%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    font-size: 30px;
+   
+}

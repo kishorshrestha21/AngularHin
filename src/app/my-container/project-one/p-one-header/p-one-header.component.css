@@ -1,0 +1,18 @@
+header{
+    width: 100%;
+    background-color: teal;
+}
+
+.logo{
+    float: left;
+}
+
+nav{
+    text-align: center;
+    float: right;
+}
+ul{
+    display: flex;
+    margin: 0;
+    padding: 0;
+}

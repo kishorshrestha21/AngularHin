@@ -1,0 +1,145 @@
+{{<div class="binding">
+  <!-- INTERPOLATION---------------------------- -->
+  <div class="interpolation">
+    <p>{{testText}}</p>
+    <p>{{interpolation}}</p>
+    
+
+    <br><br>
+    <p>Expressions Binding</p>
+    {{8*9}}
+    <br><br>
+    <p>String Binding</p>
+    {{"My name is an interpolation and " + testText}}
+    <br><br>
+    <p>Method Binding</p>
+    {{myMethod()}}
+    <br><br>
+    <p>Ternary Operator Binding</p>
+    My status: {{ myStatu? status1 : status2}}<br>
+    gender: {{ gender? boy : girl}}
+     <button class="btn btn-success" (click)="onGender()">{{myGender}}</button>
+  </div>
+  
+  <!-- PROPERTY-------------------------------------------------- -->
+  <div class="property">
+    <p>Property Binding</p>
+    <input [disabled]="isdisable" type="text" [value]="interpolation"><br>
+    <input type="text" [hidden]="!isdisable">
+    <input type="text" [hidden]= "kiran" placeholder="test">
+ 
+
+    <div>
+      <p [innerHTML]="interpolation"></p>
+    </div>
+  </div>
+  
+  <!-- CLASS BINDING AND STYLE BINDING---------------------------------------------------- -->
+  <div class="classBinding">
+    <p [class.classOne]="true">Class Binding</p>
+    <p [style.margin]="mar">Margin</p>
+    <p [style.background]="isActive? myBack1 : 'red'"> Ternary </p>
+    <p [ngClass]="myNgClass">ngClas</p>
+    <p [ngClass]="'inOne inTwo inThree'"> Inline ngClass</p>
+    <p [ngStyle]="{
+            'background':'red',
+            'padding':'10px',
+            'margin-top':'10px'
+        }">Inline ngStyle</p>
+
+    <p [ngStyle]="multiStyle">ngStyle</p>
+
+  </div>
+  <!-- EVENT BINDING----------------------------------------- -->
+  <div class="eventBinding">
+    <h3>Event Binding</h3>
+    <div id="hideBox" *ngIf="hideShow">
+      <h2>HideNShow</h2>
+    </div>
+    <button (click)="onClick()">Click</button>
+    <button (mouseover)="tog()">{{hideNShow}}</button><br><br>
+
+    <button value="IPhone" (click)="addCart($event)">IPhone</button>
+    <button value="Samsung" (click)="addCart($event)">Samsung</button><br>
+    <p>{{message}}</p>
+
+   
+
+  </div>
+  <!-- =================================================== -->
+
+  <!-- Template Reference Variable -->
+  <div class="templateR">
+    <h3>Template Reference Variable</h3>
+    <input type="text" #myVal>
+    <button (click)="getInputValue(myVal)">Get Value</button>
+    <p>{{inputValue}}</p>
+  </div>
+
+  <div>
+    <input type="text" #tem>
+    <button (click) = "getTemVal(tem)">Template Value</button>
+    <p>{{templateValue}}</p>
+  </div>
+
+
+  
+
+  <!-- Two Way Binding -->
+  <div id="twoway">
+    <h3>Two Way Binding</h3>
+    <input type="text" [(ngModel)]="name">
+    <p>{{name}}</p>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xs-12 col-6 col-md-4 form-group">
+    <input type="text" placeholder="Datepicker" class="form-control" bsDatepicker>
+  </div>
+  <div class="col-xs-12 col-12 col-md-4 form-group">
+    <input type="text" placeholder="Daterangepicker" class="form-control" bsDaterangepicker>
+  </div>
+  <div class="col-xs-12 col-6 col-md-4">
+    <button type="button" class="btn btn-primary" (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed"
+      aria-controls="collapseBasic">Toggle collapse
+    </button>
+    <hr>
+    <div id="collapseBasic" [collapse]="isCollapsed">
+      <div class="well well-lg card card-block card-header">Some content</div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<button class="btn btn-danger">Danger</button>
+
+<!-- ====================================Test========================================================= -->
+<button  class=" btn btn-primary m-5" value="Get Value" (click)="getVal($event)">Get Value</button>
+<button  class=" btn btn-success" value="Get Value Again" (click)="getVal($event)">Get Value Again</button>
+<p>{{buttonVal}}</p>
+
+<input type="text" [(ngModel)]="twoWayB">
+<p>{{twoWayB}}</p>
+
+<button [disabled]= "true">isAble</button>
+
+<div [ngClass]="multiClasses">
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex, et.</p>
+</div>
+
+<p [class.testclass]="true">Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
+  Doloremque delectus exercitationem eligendi ipsum totam optio 
+  distinctio assumenda repellat accusantium eius.
+</p>
+
+<p [style.color]="'yellow'">Lorem ipsum dolor sit amet.</p>
+
+<p [ngStyle]="multiStyles">
+  Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos, accusamus.
+</p>
+
+<app-output></app-output>
+<app-test-binding></app-test-binding>

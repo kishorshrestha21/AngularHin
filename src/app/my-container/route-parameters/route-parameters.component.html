@@ -1,0 +1,22 @@
+<div class="routePara p-3">
+    <p>Lorem, ipsum dolor sit amet consectetur 
+        adipisicing elit. Sit, ut similique officia 
+        consequuntur ex esse nostrum sapiente iste dignissimos 
+        quas eaque! Atque, magnam 
+        nesciunt. Sit dolor repellat ratione obcaecati iure.
+    </p>
+</div>
+
+
+<div class="container">
+    <div class="row">
+        <h3>Departmanet List</h3>
+    </div>
+    <ul class="items">
+        <li (click)=" onSlect(department)" *ngFor= "let department of departments">
+            <span class="badge"> {{department.id}}</span> {{department.name}}
+        </li>
+    </ul>
+
+</div>
+

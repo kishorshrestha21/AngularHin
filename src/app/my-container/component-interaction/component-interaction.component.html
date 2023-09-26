@@ -1,0 +1,12 @@
+<p>Lorem ipsum dolor sit amet consectetur adipisicing 
+    elit. Veritatis blanditiis, velit vel unde temporibus odio 
+    possimus numquam corrupti voluptatem illo magni corporis veniam iste 
+    repellendus, reprehenderit commodi ea vitae exercitationem?
+</p>
+ <h2>{{message}}</h2>
+<h3>{{secondMessage}}</h3>
+<app-second-child [childData]="dataFromParent" 
+[secondChildData]="seconDataFromChild"
+ (childEvent)="message = $event"
+ (secondDataEevent) ="getData($event)" >
+</app-second-child>

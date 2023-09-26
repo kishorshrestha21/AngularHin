@@ -1,0 +1,262 @@
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-4 gap">
+            <div class="bg-success p-2 rounded text-center text-white h-100">
+                <h1>{{testInterpolation}}</h1>
+                
+            </div>   
+        </div>
+
+        <div class="col-md-4 gap">
+            <div class="bg-success p-2 rounded text-center text-white h-100">
+                <p>{{testText? text1: text2}}</p>
+            </div>
+        </div>
+<!-- ==============================property binding====================== -->
+        <div class="col-md-4 gap">
+            <div class="bg-success p-2 rounded text-center text-white h-100">
+                 <button  class="btn btn-dark" [disabled] ="isAble">IsAble</button>
+            </div>
+        </div>
+<!-- ===============Two Way Binding===================================== -->
+        <div class="col-md-4 gap">
+            <div class="bg-info p-2 rounded h-100">
+                <input type="text" [(ngModel)]="testTwoWay" placeholder="twoway">
+                <!-- <button class="btn btn-dark"></button> -->
+                <p>{{testTwoWay}}</p>
+            </div> 
+        </div>
+<!-- ========================Template Reference Veriable ===================== -->
+        <div class="col-md-8 gap">
+            <div class="bg-info p-2 rounded text-center rounded h-100">
+                <input type="text" #testTem  class="mr-2 ">
+                <button (click)="onTem(testTem)" class="btn btn-dark">Template Referance Variable</button>
+                <p>{{tempValue}}</p>
+            </div>
+        </div>
+<!-- ===============================Calss Binding ==================== -->
+        <div class="col-md-4  gap">
+            <div [ngClass]="testClass" class="h-100">
+              <p>
+                1 Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus 
+                ullam sint repellendus dolorum minus enim iste! Assumenda, 
+                ipsam tempore dolorem rerum praesentium dolore voluptate, 
+                repudiandae at deleniti eveniet similique sit!
+              </p> 
+            </div>
+        </div>
+
+        <div class="col-md-4 gap">
+            <div [class.newCal]="true" class="h-100">
+                <p>
+                    2 Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus 
+                    ullam sint repellendus dolorum minus enim iste! Assumenda, 
+                    ipsam tempore dolorem rerum praesentium dolore voluptate, 
+                    repudiandae at deleniti eveniet similique sit!
+                  </p> 
+            </div> 
+        </div>
+
+        <div class="col-md-4  gap ">
+            <div [ngClass]="'k1 k2 k3'" class="h-100">
+                <p>
+                    3 Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus 
+                    ullam sint repellendus dolorum minus enim iste! Assumenda, 
+                    ipsam tempore dolorem rerum praesentium dolore voluptate, 
+                    repudiandae at deleniti eveniet similique sit!
+                  </p> 
+            </div>
+        </div>
+
+        <div class="col-md-4  gap">
+            <div [ngStyle]= "testStyle" class="gClass">
+               4 Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit quam atque quos.
+               
+            </div>
+        </div>
+
+        <div class="col-md-4  gap">
+            <div [class.testClass]="true">
+                5 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae?
+            </div>
+        </div>
+
+        <div class="col-md-4  gap">
+            <div [style.padding]="pad" class="padClass">
+                6 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae?
+            </div>
+        </div>
+
+        <div class="col-md-4  gap">
+            <div [style.background] ="back? yellow1 : red1 " class="newClass">
+                7Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae?
+            </div>
+        </div>
+
+        <div class="col-md-12  gap">
+            <div class="event text-center p-2" [style.background] ="myback? myTurquoise: myTomato">
+                <h3>Event Binding</h3>
+            </div>
+        </div>
+
+        <div class="col-md-2  gap">
+            <div class="event bg-light p-2">
+                <button class="btn btn-primary"(click)="onMyClick()" >Click</button>
+            </div>
+        </div>
+
+        <div class="col-md-2  gap">
+            <div class="event bg-light p-2">
+                <button class="btn btn-primary"(click)="onMyToggle()" >Toggle</button>
+            </div>
+        </div>
+
+        <div class="col-md-2  gap">
+            <div class="event bg-light p-2">
+                <button class="btn btn-primary"(click)="onGetValue($event)" value="My Button" >My Button</button> <br><br>
+                <button class="btn btn-primary"(click)="onGetValue2($event)" value="My Button2" >My Button2</button>
+               <p> {{btnValue}}</p>
+            </div>
+        </div>
+
+
+        <div class="col-md-2  gap">
+            <div class="event bg-light p-2">
+                
+                <button class="btn btn-primary"(click)="onshowHide()" >{{showHide}}</button>
+                <p *ngIf="showNHide">I am showing</p>
+            </div>
+        </div>
+
+        <div class="col-md-12 gap">
+            <h3 class="text-center bg-info p-2">Ng If</h3>
+        </div>
+
+        <div class="col-md-4 gap  " *ngIf ="true">
+            <div class="p-2 bg-primary text-white rounded">
+                <p> ngIf True</p>  
+            </div>
+        </div>
+
+        <div class="col-md-4 gap  " >
+            <div class="p-2 bg-secondary text-white rounded" *ngIf ="ifTrue then blockOne; else blockTwo">
+             
+            </div>
+        </div>
+        <div>
+            <ng-template #blockOne>
+                BlockOne
+            </ng-template>
+            <ng-template #blockTwo>
+                Block Two
+            </ng-template>
+        </div>
+        <div class="col-md-4 gap">
+            <button class="btn btn-primary" (click) = "onChangeBlock()" >Change Block</button>  
+        </div>
+
+        <div class="col-md-12 gap ">
+            <h3 class="bg-warning p-2 text-center">Ng Switch</h3>
+        </div>
+
+        <div class="col-md-4 gap" [ngSwitch]="myNgSwitch">
+            <p *ngSwitchDefault>What is your name?</p>
+            <p *ngSwitchCase ="'one'">My name is Ram</p>
+            <p *ngSwitchCase ="'two'">My name is Shyam</p>
+            <p *ngSwitchCase ="'three'">My name is Hari</p>
+        </div>
+        <div class="col-md-4 gap">
+            <select name="" id="" class="form-control" (change) ="onGetSelectValue($event)">
+                <option value="">Select</option>
+                <option value="one">one</option>
+                <option value="two">two</option>
+                <option value="three">three</option>
+            </select>
+            <div [ngSwitch]="mySelectValue">
+                <p *ngSwitchDefault>Select anyone</p>
+                <p *ngSwitchCase = "'one'">One</p>
+                <p *ngSwitchCase = "'two'">Two</p>
+                <p *ngSwitchCase = "'three'">Three</p>
+            </div>
+        </div>
+
+        <div class="col-md-12">
+            <h3 class="bg-primary p-2 text-center text-white">Ng For</h3>
+        </div>
+
+        <div class="col-md-12">
+            <table class="table table-light table-hover">
+                <thead>
+                   <th>S.No</th>
+                   <th>Name</th>
+                   <th>Last Name</th>
+                   <th>Address</th>
+                   <th>Photo</th>
+                </thead>
+                <tbody>
+                    <tr *ngFor ="let employee of employees index as no">
+                        <td>{{no+1}}</td>
+                        <td>{{employee.name}}</td>
+                        <td>{{employee.lName}}</td>
+                        <td>{{employee.address}}</td>
+                        <td><img width="50px" src ={{employee.photo}}></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="col-md-12 gap">
+            <h3 class="bg-danger p-2 text-center text-white">Push And Splice</h3>
+        </div>
+        <div class="col-md-4">
+            <input class="form-control"type="text"placeholder="Name" #myUName>
+        </div>
+        <div class="col-md-2">
+        <button class=" btn btn-success" (click)="onCrerateName(myUName)">Create Name</button>
+ 
+        </div>
+
+        <div class="col-md-2">
+            <button class=" btn btn-danger" (click)="onDeleteTop()">Delete</button>
+        </div>
+
+        <div class="col md-6">
+            <table class="table">
+                <thead>
+                    <th>S.No</th>
+                    <th>Name</th>
+                    <th>Delete</th>
+                </thead>
+                <tbody>
+                    <tr *ngFor ="let myName of myNames index as sNo">
+                        <td>{{sNo + 1}}</td>
+                        <td>{{myName.name}}</td>
+                        <td><button class="btn btn-danger" (click)="onDelete(sNo)">Delete</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+      <!-- -------------------------------------------------------------------- -->
+     </div>
+
+        
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

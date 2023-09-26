@@ -1,0 +1,207 @@
+<div class="row">
+    <div class="col-4">
+        <h2 class="text-center">NgIf</h2>
+        <div *ngIf ="isShow">
+            <p> I am an ngIf Lorem ipsum dolor sit amet, 
+                consectetur adipisicing elit. Tenetur odit 
+                blanditiis, unde eligendi possimus facilis 
+                itaque dolorem odio ex quod at dolorum repellat 
+                ipsa error! Doloremque officiis quia recusandae error.
+            </p>
+        
+        </div>
+        <button class=" btn btn-primary" (click)="showNhide()">{{hideShow}}</button>
+    </div>
+    <div class="col-4">
+        <div *ngIf = "ifBlock; else elseBlock">
+            <p>
+                I am an If BLock,
+            </p>
+        </div>
+
+        <ng-template #elseBlock>
+            <p>
+                Hello I am an Else BLock.
+            </p>
+        </ng-template>
+
+
+        <div >
+            <p *ngIf = "showMe then ifBlockName; else elseBlockName">
+              
+            </p>
+        </div>
+
+        <ng-template #ifBlockName>
+            showMe = true
+        </ng-template>
+
+        <ng-template #elseBlockName>
+            showMe = false
+        </ng-template>
+
+        <div *ngIf = "dekha then iblock; else elseBlock">
+       
+        </div>
+        <ng-template #iblock>
+            <p>Iblock</p>
+        </ng-template>
+        
+        <button class="btn btn-success" (click)="blockName()">{{block}}</button>
+    </div>
+
+    <!-- ------------------Test -->
+    <div class="col-4">
+        <div *ngIf="true">
+           <h3>ngIf</h3>
+        </div>
+        <div *ngIf="isTrue">
+            <p>Lorem ipsum dolor sit amet consectetur.</p>
+        </div>
+    </div>
+    
+
+    <div class="col-4">
+        <div *ngIf = "ifB; else eB">
+            <p>Hey I am an ifB</p>
+        </div>
+        
+        <p *ngIf="withThen then showDiv; else hideDiv">
+
+        </p>
+    </div>
+    <ng-template #showDiv >
+        <p>Show Div</p>
+    </ng-template>
+
+    <ng-template #hideDiv>
+        <p>Hide Div</p>
+    </ng-template>
+
+    <ng-template #eB>
+        <p>Hey I am an Eb</p>
+    </ng-template>
+
+    <div class="col-4" [ngSwitch] = "color">
+        <h3>ngSwitch</h3>
+        <h3 *ngSwitchCase = "'red'"> I am a red</h3>
+        <h3 *ngSwitchCase = "'green'">I am a green</h3>
+        <h3 *ngSwitchCase = "'yellow'"> I am a Yellow</h3>
+    </div> 
+
+     <div>
+        <select (change) ="getValue($event)">
+            <option value="">--Select--</option>
+            <option value="one">One</option>
+            <option value="two">Two</option>
+            <option value="three">Three</option>
+        </select>
+    </div>
+
+    <div [ngSwitch] = "choose">
+        <p *ngSwitchCase = "'one'">First</p>
+        <p *ngSwitchCase = "'two'">Second</p>
+        <p *ngSwitchCase = "'three'">Third</p>
+        <p *ngSwitchDefault>Default</p>
+    </div>
+
+    <div class="col-4" [ngSwitch]="myName">
+        <p *ngSwitchCase ="'ram'">My name is Ram</p>
+        <p *ngSwitchCase ="'shyam'">My name is Shyam</p>
+        <p *ngSwitchCase ="'hari'">My name is Hari</p>
+    </div>
+
+    <div class="col-4">
+        <select name="" id=""  (change)="getProduceVal($event)">
+            <option value="">Select</option>
+            <option value="tv">TV</option>
+            <option value="laptop">Laptop</option>
+            <option value="phone">Phone</option>
+        </select>
+        <div [ngSwitch]="myProduct">
+            <h3 *ngSwitchDefault>Select Product</h3>
+            <h3 *ngSwitchCase="'tv'">TV</h3>
+            <h3 *ngSwitchCase="'laptop'">Laptop</h3>
+            <h3 *ngSwitchCase="'phone'">Phone</h3>
+        </div>
+        <p>{{myProduct}}</p>
+
+        
+    </div>
+ 
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <table class=" table table-dark  table-hover">
+                <thead>
+                    <th>S.No</th>
+                    <th>Product Id</th>
+                    <th>Product Name</th>
+                    <th>Product Image</th>
+                    <th>Product Price</th>
+                </thead>
+                <tr *ngFor= "let mypro of products; index as no">
+                    <td>{{no+1}}</td>
+                    <td><img width ="100px"src = {{mypro.img}}></td>
+                    <td>{{mypro.id}}</td>
+                    <td>{{mypro.name}}</td>
+                    <td>{{mypro.price}}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <!-- <img src ={{imageSrc}}>
+    <img [src]="imageSrc"> -->
+    <div class="row">
+        <div class="col-md-4">
+            <input type="text" class="form-control" value ={{test}} #uname placeholder="User  Name">
+
+        </div>
+        <div class="col-md-2">
+            <button class="btn btn-success" (click)="onUserCreateUser(uname)">Create User</button>
+        </div>
+        <div class="col-md-2">
+            <button class="btn btn-danger" (click)="onRemove()">Remove</button>
+        </div>
+    </div>  <br>
+
+
+    <div class="row">
+        <div class="col-md-8">
+            <table class="table">
+               <thead class="thead-dark">
+                   <tr>
+                       <th>UserName</th>
+                       <th>Age</th>
+                       <th>Remove</th>
+                   </tr>
+               </thead> 
+               <tbody>
+                   <tr *ngFor = "let user of users; index as i">
+                        <td>{{user.name}}</td>
+                       
+                        <td class = "btn btn-danger" (click)= "onRemoveUser(i)">Remove</td>
+                   </tr>
+               </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="push">
+        <input type="text" #myname placeholder=" name">
+
+    </div>
+    <div class="btn">
+        <button (click)="createName(myname)">Create User</button>
+    </div>
+<ul *ngFor = "let newname of names">
+    <li value ={{test}}>{{newname.tname}}</li>
+</ul>
+
+</div>
+
+<app-splice></app-splice>
+
+

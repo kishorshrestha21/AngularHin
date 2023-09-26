@@ -1,0 +1,10 @@
+<input type="text" #uname>
+<button (click) = "getVal(uname)">Get Value</button>
+
+<table>
+    <tbody>
+        <tr *ngFor = 'let user of users'>
+            <td>{{user.name}}</td>
+        </tr>
+    </tbody>
+</table>

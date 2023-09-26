@@ -1,0 +1,14 @@
+<div class="border text-center p-4">
+    <h3>Service One</h3>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit, officia.</p>
+    <button class="btn btn-success" (click)="btnClick()">Subscribe Newsletter</button>
+    <p class="ml-auto d-flex">{{readMore}}</p>
+
+<ul *ngFor="let employee of employees" >
+    <li class="list-group-item">Name: {{employee.name}}</li>
+    <li class="list-group-item"> Age:{{employee.age}}</li>
+
+</ul>
+</div>
+
+<!-- <app-observable></app-observable> -->

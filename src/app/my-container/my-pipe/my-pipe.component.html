@@ -1,0 +1,184 @@
+<div class="text-center">
+
+  <h2 class="bg-info text-white p-3">Pipe</h2>
+
+  <h4>{{pipeValue | uppercase}}</h4>
+  <h4>{{pipeValue | titlecase}}</h4>
+  <h2 class="bg-success text-white pg-2">Date</h2>
+  <h4>{{date}}</h4>
+  <h4>{{date | date}}</h4>
+  <h4>{{date | date:'fullDate' | uppercase}}</h4>
+  <h4>{{date | date:'short'}}</h4>
+  <h4>{{date | date:'shortDate'}}</h4>
+  <h4>{{date | date: 'h:mm a z'}}</h4>
+  <h4>{{date | date: 'medium'}}</h4>
+  <h4>{{date | date:'shortTime'}}</h4>
+  <h4>{{date | date : 'mm:ss'}}</h4>
+  <h2 class="bg-success text-white pg-2">Slice</h2>
+  <h4>{{pipeValue | slice:1}}</h4>
+  <h4>{{pipeValue | slice:3 : 10}}</h4>
+
+  <!-- <p>{{pipeValue | customPipe: 20}}</p> -->
+  <div class="myUl">
+    <ul *ngFor="let name of nameArr ">
+      <!-- <li>{{name.name | customPipe:5}}</li> -->
+      <li>{{name.name | customPipe:name.gender }}</li>
+      <li>{{name.gender}}</li>
+    </ul>
+    <hr>
+    <ul *ngFor="let name of nameArr ">
+      <li>{{name.name | threeDots:4 | customPipe:name.gender }}</li>
+      <li>{{name.gender}}</li>
+    </ul>
+  </div>
+
+</div>
+
+<div class="container">
+     <h2>Filter Pipe</h2>
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="form-group">
+        <input type="txext" class="form-control" id="search" placeholder="Search" [(ngModel)]="nameSearch">
+      </div>
+    </div>
+    <div class="col-md-8">
+      <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Product Name</th>
+            <th scope="col">Price</th>
+            <th scope="col">Availablity</th>
+          </tr>
+        </thead>
+        
+        <tbody>
+          <tr *ngFor="let product of productArr | filter:nameSearch">
+            <td>{{product.sno}}</td>
+            <td>{{product.name}}</td>
+            <td>{{product.price}}</td>
+            <td>{{product.availablity}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div class="row justify-content-center">
+     <div class="col-md-12 text-center">
+          <h2>Column Pipe</h2>
+     </div>
+     
+     <div class="col-md-6">
+          <table class="table">
+               <thead>
+                 <th>id</th>
+                 <th>name</th>
+                 <th>Fees</th>
+                 
+               </thead>
+               <tbody>
+                 <tr *ngFor="let student of  studentArray">
+                  <td>{{student.id}}</td>
+                  <td>{{student.name}}</td>
+                   <td>{{student.fees}}</td>
+             
+                 </tr>
+               </tbody>
+               <td>
+                  <span>
+                   <h3>Total id: {{ studentArray | columnSum:'id' }}</h3>
+                 </span>
+             </td>
+             <td>
+               <span>
+                <h3></h3>
+              </span>
+          </td>
+               <td>
+                  <span>
+                   <h3>Total Fees: {{ studentArray | columnSum:'fees' }}</h3>
+                 </span>
+             </td>
+             
+             </table>
+     </div>
+    
+</div>
+
+<div class="row justify-content-center">
+     <div class="col-md-12 text-center">
+          <h2 class="text-info" >Row Sum Pipe</h2>
+     </div>
+     <div class="col-md-10">
+          <table class="table">
+               <thead class="thead-dark">
+                    <tr>
+                         <th>Sno</th>
+                         <th>Name</th>
+                         <th>Fours</th>
+                         <th>Sixs</th>
+                         <th>Orther</th>
+                         <th>Total Runs</th>
+                    </tr>
+                </thead>
+                <tbody>
+                     <tr *ngFor="let playerRuns of playersRuns">
+                         <td>{{playerRuns.id}}</td>
+                         <td>{{playerRuns.name}}</td>
+                         <td>{{playerRuns.fours}}</td>
+                         <td>{{playerRuns.sixs}}</td>
+                         <td>{{playerRuns.other}}</td>
+                         <td>{{playerRuns.other | rowSum:playerRuns.fours:playerRuns.sixs}}</td>
+                     </tr>
+                </tbody>
+          </table>
+     </div>
+     
+</div>
+
+<h2>Highlight Pipe</h2>
+<ul>
+     <li *ngFor="let user of users">
+          <div [innerHTML] ="user.city | highlight:user.cityCode"></div>
+     </li>
+</ul>
+<div class="row justify-content-center">
+     <div class="col-md-6">
+          <table class="table">
+               <tr *ngFor="let user of users">
+                    <td>{{user.city}}</td>
+                    <td><div class=" text-center" [innerHTML] ="user.cityCode | highlight:user.cityCode"></div></td>
+               </tr>
+          </table>
+     </div>
+</div>
+
+<div class="row justify-content-center">
+     <div class="col-md-8">
+          <table class="table">
+               <thead class="thead-dark">
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Salary</th>
+                    <th>DOB</th>
+                    <th>Age</th>
+               </thead>
+               <tbody>
+                    <tr *ngFor ="let forAge of forAges;  index as i">
+                         <td>{{i+1}}</td>
+                         <td>{{forAge.name | titlecase}}</td>
+                         <td>{{ forAge.salary | currency:'':'symbol':'3.3-3'}}</td>
+                         <td>{{forAge.dob | date:'shortDate' }}</td>
+                         <td>{{forAge.dob | age}}</td>
+                    </tr>
+
+                    <td>Total Salary:{{forAges | columnSum:'salary' | currency}}</td>
+               </tbody>
+
+          </table>
+     </div>
+</div>
+

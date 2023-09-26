@@ -1,0 +1,28 @@
+<div class="ngContainer p-3">
+    <ng-container *ngIf ="true">
+        <div class="div" *ngFor ="let car of cars ">
+                <li>{{car.name}}</li>
+        </div>
+    </ng-container>
+    <!-- <p> 
+        Angular does not support 2 directive in 1 div so we create ng-container  
+        instated of create unnecessery div. 
+    </p> -->
+
+    <!-- <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+        Deserunt eveniet delectus ducimus qui natus temporibus 
+        facere perspiciatis exercitationem atque pariatur voluptates 
+        dolore nam, ea provident? Molestiae aliquam reiciendis 
+        laudantium necessitatibus!
+    </p> -->
+
+    <p>{{num}}</p>
+    <button (click)="numPlus()" class="btn btn-success mr-2">+</button>
+    <button (click)="numMinus()"  class="btn btn-warning">-</button>
+    <p>{{momo}}</p>
+    <h3>Total: {{addNum}}</h3>
+
+</div>
+
+

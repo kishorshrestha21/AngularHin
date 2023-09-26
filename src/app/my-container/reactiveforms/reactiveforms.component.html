@@ -1,0 +1,224 @@
+<div class="container-fluid">
+  <div class="reactiveFormClass">
+    <h2 class="text-center text-info p-3">Regitration From</h2>
+    <form [formGroup]="registrationForm">
+      <div class="row">
+        <div class="col-md-4">
+          <div class="form-group">
+            <!-- <label for="firstName">Name</label> -->
+            <input type="text" class="form-control border-bottom" placeholder="First Name" formControlName="firstName"
+              [class.invalidInput]="registrationForm.get('firstName').invalid && 
+                                    registrationForm.get('firstName').touched">
+
+            <small class="text-danger" [class.d-none]="registrationForm.get('firstName').valid ||
+                            registrationForm.get('firstName').untouched">
+              First Name is requird
+            </small>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="form-group">
+            <!-- <label for="">Midle Name</label> -->
+            <input type="text" class="form-control border-bottom" placeholder="Middle Name"
+              formControlName="middleName">
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="form-group">
+            <!-- <label for="">Last Name</label> -->
+            <input type="text" class="form-control border-bottom" placeholder="Last Name" formControlName="lastName">
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <div class="form-group">
+            <!-- <label for="">Phone</label> -->
+            <input type="text" class="form-control border-bottom" placeholder="Phone No" 
+            formControlName="phone" [class.invalidInput]= "phone.invalid && phone.touched">
+            <small [class.d-none] = "phone.valid || phone.untouched" class="text-danger">
+                phone is required
+               </small>
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <div class="form-group">
+            <!-- <label for="">E-mail</label> -->
+            <input type="email" class="form-control border-bottom" placeholder="E-mail"
+             formControlName="email"[class.invalidInput]= "email.invalid && email.touched">
+             <div *ngIf="email.invalid && email.touched">
+                <small *ngIf="email.errors?.required" class="text-danger">
+                    Email is required.
+               </small>
+   
+               <small *ngIf="email.errors?.email" class="text-danger">
+                   Email is invalid.
+              </small>
+            </div>
+             
+            
+          </div>
+        </div>
+        
+
+        <div class="col-md-3">
+          <div class="form-group">
+            <!-- <label for="">Upload Photo</label> -->
+            <div>
+              <label class="custom-upload ">
+                <span class="form-control px-5 bg-warning text-white">Uplaod Photo</span>
+                <input type="file" class="form-control" formControlName='uploadPic'>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <div class="form-group">
+            <!-- <label for="">Upload ID</label> -->
+            <div>
+              <label class="custom-upload ">
+                <span class="form-control px-5 bg-warning text-white">Uplaod ID</span>
+                <input type="file" class="form-control" formControlName='uploadId'>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4 ml-3">
+            <div class="form-group">
+                <input type="checkbox" class="form-check-input"
+                formControlName="subscribe">
+                <label for="" class="form-check-label text-info">
+                    subscribe newsletter
+                </label>
+            </div>
+        </div>
+
+      </div>
+
+      <div class="row" formGroupName="address">
+        <div class="col-md-4">
+          <div class="form-group">
+            <!-- <label for="">Street</label> -->
+            <input type="text" class="form-control border-bottom" placeholder="Street" formControlName="street">
+          </div>
+        </div>
+
+        <div class="col-md-2">
+          <div class="form-group">
+            <!-- <label for="">Apartment No</label> -->
+            <input type="text" class="form-control border-bottom" placeholder="Apt#" formControlName="apartmentNo">
+          </div>
+        </div>
+
+        <div class="col-md-2">
+          <div class="form-group">
+            <!-- <label for="">City</label> -->
+            <input type="text" class="form-control border-bottom" placeholder="City" formControlName="city">
+          </div>
+        </div>
+
+        <div class="col-md-2">
+          <div class="form-group">
+            <!-- <label for="">State</label> -->
+            <select name="" id="" class="form-control border-bottom" formControlName="state">
+              <option value="NY">NY</option>
+              <option value="CA">CA</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="col-md-2">
+          <div class="form-group">
+            <!-- <label for="">Zip code</label> -->
+            <input type="text" class="form-control border-bottom" placeholder="Zip Code" formControlName="zipcode">
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-4">
+          <div class="form-group">
+            <!-- <label for="">Username</label> -->
+            <input type="text" class="form-control border-bottom" placeholder="Username" formControlName="userName"
+              [class.invalidInput]="registrationForm.get('userName').invalid && 
+                                    registrationForm.get('userName').touched">
+
+            <!-- <small class="text-danger"  
+            [class.d-none]= "registrationForm.get('userName').valid ||
+                            registrationForm.get('userName').untouched">
+                Username is requird.
+            </small> -->
+            <div *ngIf="userName.invalid
+                        && userName.touched">
+              <small class="text-danger" *ngIf="userName.errors?.required">
+                <!-- with method for code shoter  -->
+                Username is required.
+              </small>
+              <small class="text-danger" *ngIf="registrationForm.get('userName').errors?.minlength">
+                Username must be at least 3 characters.
+              </small>
+
+              <small class="text-danger" *ngIf="userName.errors?.forbiddenName">
+                <!-- with method for code shoter  -->
+                {{userName.errors?.forbiddenName.value}} username not allowed.
+              </small>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="form-group">
+            <!-- <label for="">Password</label> -->
+            <input type="password" class="form-control border-bottom" placeholder="Password" formControlName="password">
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="form-group">
+            <!-- <label for="">Confirm Password</label> -->
+            <input type="password" class="form-control border-bottom" placeholder="Confirm Password"
+              formControlName="confirmPassword" [class.invalidInput]="registrationForm.errors?.misMatch">
+            <small class="text-danger" *ngIf="registrationForm.errors?.misMatch">Password does not match</small>
+          </div>
+        </div>
+      </div>
+
+
+      <h4 class="text-center text-success p-2 mt-5">mergency Contact </h4>
+      <div class="row" formGroupName="emergencyContact">
+        <div class="col-md-4">
+          <div class="form-group">
+            <!-- <label for="">Name</label> -->
+            <input type="text" class="form-control border-bottom" placeholder="First Name" formControlName="eFirstName">
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="form-group">
+            <!-- <label for="">Last Name</label> -->
+            <input type="text" class="form-control border-bottom" placeholder="Last Name" formControlName="eLastName">
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="form-group">
+            <!-- <label for="">Phone No</label> -->
+            <input type="text" class="form-control border-bottom" placeholder="Phone No" formControlName="ePhoneNo">
+          </div>
+        </div>
+
+      </div><br>
+
+      <button type="submit" class="btn btn-success">Submit</button>
+      <button (click)="loadApidata()" class="btn btn-secondary ml-2">Load Api Data</button>
+      <button (click)="patchValue()" class="btn btn-secondary ml-2">patchValue</button>
+    </form>
+    <!-- {{registrationForm.value | json}} -->
+  </div>
+
+
+</div>

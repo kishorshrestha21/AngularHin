@@ -1,0 +1,34 @@
+
+
+<div class="container border rounded  p-4  ">
+    <div class="row justify-content-center">
+        <div class="card">
+            <div [ngClass]="{
+                redHead:headerColor == 'red',
+                greenHead:headerColor == 'green'
+            }">
+            
+                <h4 class="text-center">{{textHead}}</h4>
+            </div>
+            <div class="card-body">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" class="form-control" 
+                    placeholder="{{placeHolderText}}" #inputVal>
+                </div>     
+            </div> 
+            <div class="card-footer">
+                <button (click) ="onSendData(inputVal)" class="btn btn-info">Save</button>
+                <div class="dataCount" *ngIf="dataCount">
+                    <p>Total: <span>{{dataCount}}</span></p>
+                </div>
+            </div>
+            
+          </div>
+    </div>
+</div>
+
+
+
+
+

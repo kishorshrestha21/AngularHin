@@ -1,0 +1,17 @@
+<div class="border text-center p-4">
+    <h3>Service Two</h3>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit, officia.</p>
+    <button class="btn btn-success"(click)="btnClick()">Subscribe Newsletter</button>
+    
+    <p class="ml-auto d-flex">{{readMore}}</p>
+
+    <table class="table" >
+        <tr *ngFor="let employee of employees index as i">
+            <td>{{ i+1}}</td>
+            <td>{{employee.name}}</td>
+            <td>{{employee.age}}</td>
+            <td>{{employee.address}}</td>
+        </tr>
+    </table>
+</div>
+

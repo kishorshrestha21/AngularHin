@@ -1,0 +1,21 @@
+ul{
+    width: auto;
+  
+}
+.items li{
+    background-color: rgb(228, 227, 222);
+    margin-top: 15px;
+    width:150px;
+list-style: none;
+border-radius: 5px;
+cursor: pointer;
+
+}
+
+span{
+    padding: 5px;
+    height: 100%;
+    color: white;
+    background-color:rgba(45, 36, 94, 0.591);
+}
+

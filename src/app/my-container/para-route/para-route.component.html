@@ -1,0 +1,80 @@
+<p>para-route works!</p>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <h4 class="card-title bg-success text-center text-white p-2">
+                    app.routing.module
+                </h4> 
+                <p class="p-2"> 
+                    path:'user/:id', component:UsersComponent (make a path with id ,name or any)
+                </p>
+            </div>   
+        </div>
+
+        <div class="col-md-6">
+            <div class="card">
+                <h4 class="card-title bg-success text-center text-white p-2">
+                    Component.ts
+                </h4> 
+                <p class="p-2"> 
+                  1. dependency injection in constructor private _router: Router 
+                  makesure import  Router  from '@angular/router'
+                </p>
+                <p class="p-2">
+                    2.eventName(users:any) curly brace
+                        this._router.navigate(['/user', users.id])
+                </p>
+            </div>
+
+        </div>
+
+        <div class="col-md-6">
+            <div class="card">
+                <h4 class="card-title bg-success text-center text-white p-2">
+                 View Page
+                </h4> 
+                <p class="p-2"> 
+                  1.button [routerLink] ="['/user', user.id]
+                </p>
+                <p class="p-2">
+                    2.eventName(users:any) curly brace
+                        this._router.navigate(['/user', users.id])
+                </p>
+            </div>
+
+        </div>
+
+        <div class="col-md-6">
+            <div class="card">
+                <h4 class="card-title bg-success text-center text-white p-2">
+                Detail View Page
+                </h4> 
+                <p class="p-2"> 
+                  1.dependency injection in constructor (private _route:ActivatedRoute)
+                  makesure import ActiveRoute
+                </p>
+                <p class="p-2">
+                    2. one step remember
+                </p>
+            </div>
+
+        </div>
+
+        
+    </div>
+</div>
+<table class="table">
+    <tr *ngFor="let user of users">
+        <td>{{user.id}}</td>
+        <td>{{user.name}}</td>
+<!------ =============without navigate==================================== -->
+        <td><button [routerLink] ="['/user', user.id]" 
+            class="btn btn-info">Detail</button></td>
+<!-- ======================using navigate ========================================= -->
+            <td><button (click)="onSelect(user)"
+                class="btn btn-secondary">Detail with navigate</button></td>
+    </tr>
+</table>
+
+
